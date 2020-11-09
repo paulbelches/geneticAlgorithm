@@ -2,6 +2,32 @@ import numpy as np
 #inicialiar populación
 
 population = None
+#Task 1
+def f1(x1,x2):
+  15*x1+30*x2+4*x1*x2-2*x1*x1-4*x2*x2
+def ver1(x1,x2):
+  if (x1>=0 and x2>=0 and x1+2*2x<=30):
+    return True
+  else:
+    return False
+
+#Task 2
+def f2(x1,x2):
+  3*x1+5*x2
+def ver2(x1,x2):
+  if (x1>=0 and x2>=0 and x1<=4 and 2*x2<=12 and 3*x1+2*x2<=18):
+    return True
+  else:
+    return False
+#Task 3
+def f3(x1,x2):
+  5*x1-x1*x1+8*x2-2*x2*x2
+def ver3(x1,x2):
+  if (x1>=0 and x2>=0 and x1<=4 and 3*x1+2*x2<=6):
+    return True
+  else:
+    return False
+
 
 def fitness1(v1, v2): 
     return (15 * v1) + (30 * v2) + (4 * v1 * v2) - (2 * (v1**2)) - (4 * (v2**2)) 
