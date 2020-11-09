@@ -4,36 +4,28 @@ import numpy as np
 population = None
 #Task 1
 def f1(x1,x2):
-  15*x1+30*x2+4*x1*x2-2*x1*x1-4*x2*x2
+  return (15*x1+30*x2+4*x1*x2-2*x1*x1-4*x2*x2)
 def ver1(x1,x2):
-  if (x1>=0 and x2>=0 and x1+2*2x<=30):
-    return True
-  else:
-    return False
+  return (x1>=0 and x2>=0 and x1+2*x2<=30)
 
 #Task 2
 def f2(x1,x2):
-  3*x1+5*x2
+  return (3*x1+5*x2)
 def ver2(x1,x2):
-  if (x1>=0 and x2>=0 and x1<=4 and 2*x2<=12 and 3*x1+2*x2<=18):
-    return True
-  else:
-    return False
+  return (x1>=0 and x2>=0 and x1<=4 and 2*x2<=12 and 3*x1+2*x2<=18)
+
 #Task 3
 def f3(x1,x2):
-  5*x1-x1*x1+8*x2-2*x2*x2
+  return (5*x1-x1*x1+8*x2-2*x2*x2)
 def ver3(x1,x2):
-  if (x1>=0 and x2>=0 and x1<=4 and 3*x1+2*x2<=6):
-    return True
-  else:
-    return False
+  return (x1>=0 and x2>=0 and x1<=4 and 3*x1+2*x2<=6)
 
 
 def fitness1(v1, v2): 
     return (15 * v1) + (30 * v2) + (4 * v1 * v2) - (2 * (v1**2)) - (4 * (v2**2)) 
 
 def crossover1(v1, v2): 
-    return [(v1[0] + v2[0]) // 2, (v1[1] + v2[1]) // 2, 0]
+    return [(v1[0] + v2[0]) / 2, (v1[1] + v2[1]) / 2, 0]
 
 def selection1(v1, v2): 
     result = ((v1 + (2*v2)) <= 30) and (v1 >= 0) and (v2 >= 0)
@@ -85,6 +77,10 @@ def geneticAlgorithms(fitness, fintnessFunction, crossover, crossoverFunction, m
         population = crossover(population, crossoverFunction)
         population = mutation(population)
 
-population = np.random.randint(1, 100, (1000, 3))
-population = geneticAlgorithms(fitness, fitness1, crossover, crossover1, mutation, selection, selection1, sort,  population, 100)
-print(population[0])
+population = np.random.randint(1, 100, (1000000, 3))
+population1 = geneticAlgorithms(fitness, fitness1, crossover, crossover1, mutation, selection, selection1, sort,  population, 100)
+print(population1[0])
+population2 = geneticAlgorithms(fitness, f2, crossover, crossover1, mutation, selection, ver2, sort,  population, 100)
+print(population2[0])
+population3 = geneticAlgorithms(fitness, f3, crossover, crossover1, mutation, selection, ver3, sort,  population, 100)
+print(population3[0])
